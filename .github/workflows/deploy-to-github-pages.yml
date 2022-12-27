@@ -12,10 +12,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
+      - name: Install Pandoc
+        run:
+          apt install -y pandoc
+
       - name: Build
-        uses: docker://pandoc/core:2.10
-        with:
-          entrypoint: /bin/sh
         run:
           make public/index.html
 
