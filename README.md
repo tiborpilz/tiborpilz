@@ -1,6 +1,4 @@
----
-title: "Hi There! I'm Tibor Pilz"
----
+# Hi there! I'm Tibor Pilz
 
 I'm a fullstack developer working at the IU - International University of Applied Science.
 
