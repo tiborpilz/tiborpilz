@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 #
 # Author: Jake Zimmerman <jake@zimmerman.io>
