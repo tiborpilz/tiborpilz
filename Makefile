@@ -14,7 +14,7 @@
 # ============================================================================
 
 SOURCES := $(shell find pages -type f -name '*.md') README.md
-TARGETS := $(patsubst pages/%.md,public/pages/%.html,$(SOURCES))
+TARGETS := $(patsubst %.md,public/%.html,$(patsubst README.md,index.md,$(SOURCES)))
 
 .PHONY: all
 all: public/.nojekyll $(TARGETS) public/index.html
@@ -28,15 +28,22 @@ watch:
 	./tools/serve.sh --watch
 
 public/.nojekyll: $(wildcard public/*) public/.nojekyll
-	rm -vrf public && mkdir -p public/pages && cp -vr assets/.nojekyll assets/* public
+	rm -vrf public/{css,fonts,img} && mkdir -p public/pages && cp -vr assets/.nojekyll assets/* public
 
 .PHONY: public
 public: public/.nojekyll
 
+sources:
+	@echo $(SOURCES)
+
+list:
+	@echo $(TARGETS)
+
+
 # Generalized rule: how to build a .html file from each .md
 # Note: you will need pandoc 2 or greater for this to work
-public/pages/%.html: pages/%.md template.html5 Makefile tools/build.sh
+public/pages/%.html: pages/%.md template.html5 Makefile tools/build.sh public/.nojekyll
 	tools/build.sh "$<" "$@"
 
-public/index.html: README.md template.html5 Makefile tools/build.sh
+public/index.html: README.md template.html5 Makefile tools/build.sh public/.nojekyll
 	tools/build.sh "$<" "$@"
