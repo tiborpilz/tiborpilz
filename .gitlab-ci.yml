@@ -1,0 +1,36 @@
+# variables:
+#   PANDOC_IMAGE: "${CI_REGISTRY_IMAGE}/build-pandoc:latest"
+
+# build-pandoc-image:
+#   stage: build
+#   image:
+#     name: gcr.io/kaniko-project/executor:debug
+#     entrypoint: [""]
+#   script:
+#     - mkdir -p /kaniko/.docker
+#     - echo "{\"auths\":{\"${CI_REGISTRY}\":{\"auth\":\"$(printf "%s:%s" "${CI_REGISTRY_USER}" "${CI_REGISTRY_PASSWORD}" | base64 | tr -d '\n')\"}}}" > /kaniko/.docker/config.json
+#     - >-
+#       /kaniko/executor
+#       --context "${CI_PROJECT_DIR}"
+#       --dockerfile "${CI_PROJECT_DIR}/Dockerfile"
+#       --destination "${CI_REGISTRY_IMAGE}/build-pandoc:latest"
+#   rules:
+#     - changes:
+#         - .dockerignore
+#         - Dockerfile
+#         - css
+#         - filters
+#         - ops
+#         - template
+
+pages:
+  image:
+    name: pandoc/core
+    entrypoint: [""]
+  before_script:
+    - apk add coreutils make
+  script:
+    - make public/index.html
+  artifacts:
+    paths:
+      - public
