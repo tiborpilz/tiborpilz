@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc-markdown-css-theme" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <link rel="stylesheet" href="css/theme.css" />
+</head>
+<body>
+
+<header>
+<h1 class="title"></h1>
+<blockquote class="metadata">
+</blockquote>
+</header>
+
+
+<main>
+<h1 id="hi-there-im-tibor-pilz">Hi there! I’m Tibor Pilz</h1>
+<p>I’m a fullstack developer working at the IU - International University of Applied Science.</p>
+<h1 id="links">Links</h1>
+<ul>
+<li><a href="https://github.com/tiborpilz">Github</a></li>
+<li><a href="https://gitlab.com/tiborpilz">Gitlab</a></li>
+</ul>
+<h1 id="nix-based-system-setup">Nix-Based system setup</h1>
+<p>I’ve recently migrated all my dotfiles and system configurations to a Nix/NixOS based setup, which you can check out <a href="https://github.com/tiborpilz/nixos">here</a>.</p>
+<h1 id="self-hosting">Self-Hosting</h1>
+<p>I self-host some services on Hetzner Cloud, using Terragrunt, the Rancher Kubernetes Engine and ArgoCD, with <a href="https://github.com/tiborpilz/infrastructure">this repository</a> acting as the GitOps single source of truth.</p>
+</main>
+
+<script>
+;(function() {
+  // Non-essential if user has JavaScript off. Just makes checkboxes look nicer.
+  var selector = '.task-list > li > input[type="checkbox"]';
+  var checkboxes = document.querySelectorAll(selector);
+  Array.from(checkboxes).forEach((checkbox) => {
+    var wasChecked = checkbox.checked;
+    checkbox.disabled = false;
+    checkbox.addEventListener('click', (ev) => {ev.target.checked = wasChecked});
+  });
+})();
+</script>
+</body>
+</html>
