@@ -1,6 +1,6 @@
 # Hi there! I'm Tibor Pilz
 
-I'm a fullstack developer working at the IU - International University of Applied Science.
+I'm a fullstack developer from Berlin
 
 # Links
 - [Github](https://github.com/tiborpilz)
